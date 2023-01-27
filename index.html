@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>new</title>
+</head>
+
+<body>
+
+  <form class="none" style="top: -410px;">
+    <div>
+      <input id="name" type="text" placeholder="ПІБ покупця" />
+    </div>
+
+    <div>
+      <select id="town">
+        <option hidden>Ваше місто</option>
+        <option value="Киев">Київ</option>
+        <option value="Львів">Львів</option>
+        <option value="Одеса">Одеса</option>
+      </select>
+    </div>
+
+    <div>
+      <input id="number" type="number" placeholder="Склад Нової пошти" />
+    </div>
+
+    <div>
+      <input id="card" type="number" placeholder="введіть номер банківської карти" />
+    </div>
+
+    <div>
+      <input id="adress" type="text" placeholder="Напишите адресс"></input>
+    </div>
+
+    <div>
+      <input id="productInfo" type="number" name="number" placeholder="кількість" />
+    </div>
+
+    <div>
+      <input id="coment" type="text" placeholder="коментар"></input>
+    </div>
+
+    <div>
+      <button class="button" id="button">Підтвердити</button>
+    </div>
+
+  </form>
+
+  <div id="info" class="none" style="top: -410px;">
+    <div>
+      <p class="text">Ваші дані та замовлення</p>
+      <p>Им`я:<span id="person"></span></p>
+      <p>місто:<span id="city"></span></p>
+      <p>нова пошта:<span id="mail"></span></p>
+      <p>банківська карта:<span id="bank"></span></p>
+      <p>адреса:<span id="street"></span></p>
+      <p>кількість:<span id="numbers"></span></p>
+      <p>коментар:<span id="coments"></span></p>
+      <div>
+        <button id="button2" class="button">Добре</button>
+      </div>
+    </div>
+
+    <div id="ht"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
