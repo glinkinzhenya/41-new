@@ -200,10 +200,12 @@ function check() {
 }
 
 
-// buttonSmall.addEventListener("click", () => {
-//     form.classList.add("none");
-//     div.classList.remove("black");
-// });
+buttonSmall.addEventListener("click", (e) => {
+    e.preventDefault();
+    location.reload();
+    // form.classList.add("none");
+    // div.classList.remove("black");
+});
 
 button.addEventListener("click", (e) => {
     e.preventDefault();
