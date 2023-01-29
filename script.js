@@ -278,5 +278,3 @@ function checkInfoOff() {
 document.getElementById("button2").addEventListener("click", () => {
     location.reload();
 });
-
-console.log(windowInnerHeight);
