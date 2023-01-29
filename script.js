@@ -75,7 +75,7 @@ const product = [
         img: "img/watch3.png",
         description: "<p>Сеть: GSM / GPRS WCDMA / HSDPA (850 / 1900 / 2100 МГц)</p><p> Операционная система: iPhone 2.0 OS.</p><p>Дисплей: сенсорный, 3,5 дюйма, 480 х 320 точек</p><p>Аккумулятор: 1400 мА*ч Li-Ion, 8 ч разг.(GSM), 24 ч музыки</p><p>Экран: 3.5, сенсорный, 480x320, емкостный, TFT, 16 млн. ...</p><p>Камера: 2 мпикс, 1600x1200, пинч-зум</p><p>Вид: Моноблок, 135 г, 115x61x11.6 мм</p>"
     }
-]
+];
 
 const container = document.createElement("div");
 container.classList.add("container");
@@ -135,56 +135,55 @@ let forInfo;
 function rander(y, per) {
 
     if (per) {
-        const iphone = document.createElement("div");
-        const iphoneName = document.createElement("p");
-        iphone.append(iphoneName);
-        iphoneName.innerText = `${y.name}`;
+        const position = document.createElement("div");
+        const positionName = document.createElement("p");
+        position.append(positionName);
+        positionName.innerText = `${y.name}`;
         const img = document.createElement("img");
         img.setAttribute("src", `${y.img}`);
         img.setAttribute("width", `80px`);
-        iphone.append(img);
+        position.append(img);
 
         const forDescription = document.createElement("div");
         forDescription.innerHTML = `${y.description}`;
-        iphone.append(forDescription);
+        position.append(forDescription);
         const forButton = document.createElement("div");
         const button = document.createElement("button");
         button.classList.add("button");
         button.innerText = `Придбати`;
         forButton.append(button);
         forDescription.append(forButton);
-        inform.append(iphone);
+        inform.append(position);
 
         button.addEventListener("click", () => {
             check();
             forInfo = y;
-            console.log(forInfo);
-
         });
 
     } else {
-
-        const iphone = document.createElement("div");
-        const iphoneName = document.createElement("p");
-        iphone.append(iphoneName);
-        iphoneName.innerText = `${y.name}`;
+        const position = document.createElement("div");
+        const positionName = document.createElement("p");
+        position.append(positionName);
+        positionName.innerText = `${y.name}`;
         const img = document.createElement("img");
         img.setAttribute("src", `${y.img}`);
         img.setAttribute("width", `130px`);
-        iphone.append(img);
+        position.append(img);
 
-        iphone.addEventListener("click", () => {
+        position.addEventListener("click", () => {
             inform.innerHTML = "";
-
-            console.log(`${y.name}`);
             rander(y, "l")
         });
-        return iphone;
-    }
-}
+        return position;
+    };
+};
+
+let stopInterval = 0;
 
 function check() {
     let i = -410;
+
+    stopInterval += 1
 
     div.classList.add("black");
     document.body.append(div);
@@ -194,17 +193,17 @@ function check() {
     setInterval(() => {
         i += 5
         form.style.top = `${i}px`;
-        if (i === 350) clearInterval(1);
+        if (i === 350) {
+            clearInterval(stopInterval);
+        }
     }, 5);
-
-}
-
+};
 
 buttonSmall.addEventListener("click", (e) => {
     e.preventDefault();
-    location.reload();
-    // form.classList.add("none");
-    // div.classList.remove("black");
+    div.classList.add("none");
+    form.classList.add("none");
+    form.style = "top: -410px;"
 });
 
 button.addEventListener("click", (e) => {
@@ -220,6 +219,8 @@ button.addEventListener("click", (e) => {
     document.getElementById("numbers").innerText = ` ${productInfo.value}`;
     document.getElementById("coments").innerText = ` ${coment.value}`;
 });
+
+let stopInterval2 = 1;
 
 function checkInfo(h, city, mail, bank, street, numbers) {
     let n = true;
@@ -248,11 +249,14 @@ function checkInfo(h, city, mail, bank, street, numbers) {
         info.classList.remove("none");
         let t = -410;
 
-        setInterval(() => {
+        stopInterval += 1;
+
+       let ht = setInterval(() => {
             t += 5
             info.style.top = `${t}px`;
             if (t === 370) {
-                clearInterval(2);
+                clearInterval(stopInterval);
+                console.log(ht);
             }
         }, 5);
         formWidth.classList.add("none");
