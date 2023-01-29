@@ -100,6 +100,7 @@ const button2 = document.querySelector("button2");
 const buttonSmall = document.getElementById("buttonSmall");
 
 const div = document.createElement("div");
+document.body.append(div);
 
 const formWidth = document.querySelector("form");
 const info = document.getElementById("info");
@@ -110,6 +111,15 @@ const card = document.getElementById("card");
 const adress = document.getElementById("adress");
 const productInfo = document.getElementById("productInfo")
 const coment = document.getElementById("coment")
+
+
+const windowInnerHeight = window.innerHeight;
+let stopWindow = Math.round((windowInnerHeight / 2) / 10) * 10;
+
+
+console.log(stopWindow);
+
+
 
 categories.forEach(i => {
     const div = document.createElement("div");
@@ -183,17 +193,16 @@ let stopInterval = 0;
 function check() {
     let i = -410;
 
-    stopInterval += 1
-
     div.classList.add("black");
-    document.body.append(div);
+
+    stopInterval += 1
 
     form.classList.remove("none");
 
     setInterval(() => {
-        i += 5
+        i += 5;
         form.style.top = `${i}px`;
-        if (i === 350) {
+        if (i === stopWindow) {
             clearInterval(stopInterval);
         }
     }, 5);
@@ -201,7 +210,7 @@ function check() {
 
 buttonSmall.addEventListener("click", (e) => {
     e.preventDefault();
-    div.classList.add("none");
+    div.classList.remove("black");
     form.classList.add("none");
     form.style = "top: -410px;"
 });
@@ -251,10 +260,10 @@ function checkInfo(h, city, mail, bank, street, numbers) {
 
         stopInterval += 1;
 
-       let ht = setInterval(() => {
+        let ht = setInterval(() => {
             t += 5
             info.style.top = `${t}px`;
-            if (t === 370) {
+            if (t === stopWindow) {
                 clearInterval(stopInterval);
                 console.log(ht);
             }
@@ -275,3 +284,5 @@ function checkInfoOff() {
 document.getElementById("button2").addEventListener("click", () => {
     location.reload();
 });
+
+console.log(windowInnerHeight);
