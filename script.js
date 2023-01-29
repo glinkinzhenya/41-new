@@ -112,14 +112,8 @@ const adress = document.getElementById("adress");
 const productInfo = document.getElementById("productInfo")
 const coment = document.getElementById("coment")
 
-
 const windowInnerHeight = window.innerHeight;
 let stopWindow = Math.round((windowInnerHeight / 2) / 10) * 10;
-
-
-console.log(stopWindow);
-
-
 
 categories.forEach(i => {
     const div = document.createElement("div");
